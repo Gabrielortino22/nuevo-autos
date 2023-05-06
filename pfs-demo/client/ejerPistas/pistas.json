@@ -1,0 +1,25 @@
+{
+    "cant":20,
+    "pistas": [
+        {"id":0,"nombre":"Nheivq","duracion":360,"interprete":"I15i5e","lanzamiento":1991},
+        {"id":1,"nombre":"Ncxe9f","duracion":360,"interprete":"I9grd9","lanzamiento":1991},
+        {"id":2,"nombre":"Nenble","duracion":360,"interprete":"Izsarc","lanzamiento":1991},
+        {"id":3,"nombre":"N9ip6a","duracion":360,"interprete":"I7ten3i","lanzamiento":1991},
+        {"id":4,"nombre":"Nkleh","duracion":360,"interprete":"Ip2fg6","lanzamiento":1991},
+        {"id":5,"nombre":"Nxbov4","duracion":360,"interprete":"Iot0fb","lanzamiento":1991},
+        {"id":6,"nombre":"N12o4sl","duracion":360,"interprete":"Igua67","lanzamiento":1991},
+        {"id":7,"nombre":"N78hx1","duracion":360,"interprete":"Ijdy9j","lanzamiento":1991},
+        {"id":8,"nombre":"N79jpo","duracion":360,"interprete":"I9dy4t","lanzamiento":1991},
+        {"id":9,"nombre":"Nr0py8i","duracion":360,"interprete":"Ic4tbe","lanzamiento":1991},
+        {"id":10,"nombre":"N0gnqeg","duracion":360,"interprete":"I9xlucg","lanzamiento":1991},
+        {"id":11,"nombre":"Nb1vsf","duracion":360,"interprete":"Imloys","lanzamiento":1991},
+        {"id":12,"nombre":"Nayi09","duracion":360,"interprete":"I1ai0d","lanzamiento":1991},
+        {"id":13,"nombre":"Nvt7xk","duracion":360,"interprete":"I8eq6x","lanzamiento":1991},
+        {"id":14,"nombre":"Ntsvn8","duracion":360,"interprete":"Iq6woq","lanzamiento":1991},
+        {"id":15,"nombre":"Njriekj","duracion":360,"interprete":"Invgsb","lanzamiento":1991},
+        {"id":16,"nombre":"Nj3lgf","duracion":360,"interprete":"I39frl","lanzamiento":1991},
+        {"id":17,"nombre":"N5pa5g","duracion":360,"interprete":"Iw2kl7","lanzamiento":1991},
+        {"id":18,"nombre":"Nkrnt9","duracion":360,"interprete":"Ia2pqp","lanzamiento":1991},
+        {"id":19,"nombre":"N4abla","duracion":360,"interprete":"I0qrpdj","lanzamiento":1991}
+    ]
+}
