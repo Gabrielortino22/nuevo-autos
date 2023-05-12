@@ -12,10 +12,12 @@ const mostrarAutos = () => {
     console.log(r);
     tabla += `<tr>
       <td>${r.id}</td>
+      <td>${r.patente}</td>
       <td>${r.marca}</td>
       <td>${r.modelo}</td>
       <td>${r.anio}</td>
       <td>${r.precio}</td>
+      <td>${r.carga}</td>
       <td> <a href='http://localhost:3000/autoDetail.html?index=${r.id}' > Ver detalles </a> </td>
 			<td> <button type="button" class="btnEliminar" id="${r.id}">Eliminar</button></td>
     </tr>
@@ -45,12 +47,13 @@ const mostrarAutos = () => {
 
 };
 
+
 async function load() {
   const url_base = "http://localhost:3000";
   const endpoint = "/autos";
 
   const respuesta = await fetch(url_base + endpoint);
-  let autos = await respuesta.json();
+   autos = await respuesta.json();
   console.log(autos);
 
   mostrarAutos();
@@ -61,16 +64,20 @@ const eliminar = (data) => {
 };
 
 const agregar = async () => {
+  let patente = document.getElementById("patente").value;
   let marca = document.getElementById("marca").value;
   let modelo = document.getElementById("modelo").value;
   let anio = document.getElementById("anio").value;
   let precio = document.getElementById("precio").value;
+  let carga = document.getElementById("carga").value;
 
   let auto = {
+    patente:patente,
     marca: marca,
     modelo: modelo,
     anio: Number(anio),
     precio: Number(precio),
+    carga: Number(carga),
   };
   const response = await postAutosServidor(auto);
 

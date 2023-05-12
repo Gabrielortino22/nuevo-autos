@@ -27,10 +27,12 @@ const getAutosDetail = async () => {
             const auto = await response.json();
             console.log(auto)
             document.querySelector('#id').innerHTML += auto['id'];
+            document.querySelector('#patente').innerHTML += auto['patente'];
             document.querySelector('#marca').innerHTML += auto['marca'];
             document.querySelector('#modelo').innerHTML += auto['modelo'];
             document.querySelector('#anio').innerHTML += auto['anio'];
             document.querySelector('#precio').innerHTML += auto['precio'];
+            document.querySelector('#carga').innerHTML += auto['carga'];
         }
     } catch (error) {
         console.error(error);

@@ -25,8 +25,10 @@ export class AutoService {
           partes[0],
           partes[1],
           partes[2],
-          parseInt(partes[3]),
+          partes[3],
           parseInt(partes[4]),
+          parseInt(partes[5]),
+          parseInt(partes[6]),
         );
 
         this.Autos.push(auto);
@@ -52,10 +54,12 @@ export class AutoService {
   createAutos(CreateAutosDto: CreateAutoDto): Auto{
     const newAuto: Auto = new Auto(
       uuid(),
+      CreateAutosDto.patente,
       CreateAutosDto.marca,
       CreateAutosDto.modelo,
       CreateAutosDto.anio,
       CreateAutosDto.precio,
+      CreateAutosDto.carga,
     );
 
     const dataAppend = this.Autos.length
