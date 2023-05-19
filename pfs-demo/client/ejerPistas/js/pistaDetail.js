@@ -19,7 +19,7 @@ const processParam = () => {
 const getPistaDetail = async () => {
     try {
         processParam();
-        const response = await fetch(`http://localhost:3000/pistas/${params["index"]}`);
+        const response = await fetch(`http://localhost:3051/pistas/${params["index"]}`);
 
         if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -39,4 +39,3 @@ const getPistaDetail = async () => {
     }
 }
 getPistaDetail();
-

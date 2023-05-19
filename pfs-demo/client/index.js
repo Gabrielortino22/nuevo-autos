@@ -1,62 +1,111 @@
- //let contenedor = document.getElementById('contenedor')
+// let contenedor = document.getElementById('contenedor')
 
 let btnAgregar = document.getElementById("btnAgregar");
 
 // let btnDuracion = document.getElementById('btnDuracion');
-let autos = [];
+let peliculas = [];
 
-const mostrarAutos = () => {
-  let contenedor = document.getElementById("tblAutos");
+const mostrarPeliculas = () => {
+  let contenedor = document.getElementById("tblPeliculas");
   let tabla = "";
-  for (let r of autos) {
-    console.log(r);
+  for (let r of peliculas) {
+    //console.log(r);
     tabla += `<tr>
       <td>${r.id}</td>
-      <td>${r.patente}</td>
-      <td>${r.marca}</td>
-      <td>${r.modelo}</td>
-      <td>${r.anio}</td>
-      <td>${r.precio}</td>
-      <td>${r.carga}</td>
-      <td> <a href='http://localhost:3000/autoDetail.html?index=${r.id}' > Ver detalles </a> </td>
+       <td>${r.titulo}</td>
+      <td>${r.actoresPrincipales}</td>
+      <td>${r.generos}</td>
+      <td>${r.sinopsis}</td>
+      <td>${r.imagen}</td>
+      <td>${r.duracion}</td>
+      <td>${r.fechaLanzamiento}</td>
+      <td> <a href='http://localhost:3051/peliculaDetail.html?index=${r.id}' > Ver detalles </a> </td>
 			<td> <button type="button" class="btnEliminar" id="${r.id}">Eliminar</button></td>
     </tr>
+    <tr>
+    <td>${r.id}</td>
+    <td><input type="text" value="${r.titulo}" id="titulo${r.id}"</td> 
+    <td><input type="text" value="${r.actoresPrincipales}" id="actoresPrincipales${r.id}"</td>
+    <td><input type="text" value="${r.generos}" id="generos${r.id}"</td>
+    <td><input type="text"value="${r.sinopsis}" id="sinopsis${r.id}"</td>
+    <td><input type="image" value="${r.imagen}" id="imagen${r.id}"</td>
+    <td><input type="number" value="${r.duracion}" id="duracion${r.id}"</td>
+    <td><input type="number"value="${r.fechaLanzamiento}" id="fechaLanzamiento${r.id}"</td>
+    <td> ---</td>
+
+    <td><button class="btnUpdPeliculas" id="${r.id}">Actualizar</button></td>
+    </tr>
+    
  `;
   }
+
   contenedor.innerHTML = tabla;
 
-  const borrarAutos = async(e) => {
+// Funcion para borrar pistas
+  const borrarPelicula = async (e) => {
     let id = e.target.id;
 
-    let respuesta = await fetch(`/autos/${id}`, {
+    let respuesta = await fetch(`/peliculas/${id}`, {
       method: 'DELETE',
-      headers: {"Content-Type" : "application/json"}
+      headers: { "Content-Type": "application/json" }
     })
 
     load();
   }
-
-  let botonesBorrar = document.querySelectorAll('.btnEliminar'); 
+  
+//Evento a los botones borrar
+  let botonesBorrar = document.querySelectorAll('.btnEliminar');
 
   botonesBorrar.forEach(boton => {
 
     boton.addEventListener('click', (e) => {
-           borrarAutos(e)
-    } )
+      borrarPelicula(e)
+    })
   })
+
+  async function btnActualizarClick(e) {
+
+    let id = e.target.id;
+    console.log(id);
+
+    let renglon = {
+    "titulo": document.querySelector(`#titulo${id}`).value,
+    "actoresPrincipales": document.querySelector(`#actoresPrincipales${id}`).value,
+    "generos": document.querySelector(`#generos${id}`).value,
+    "sinopsis": document.querySelector(`#sinopsis${id}`).value,
+    "imagen": Image(document.querySelector(`#imagen${id}`)).value,
+    "duracion": Number(document.querySelector(`#duracion${id}`).value),
+    "fechaLanzamiento": Number(document.querySelector(`#fechaLanzamiento${id}`).value)
+    }
+
+    let respuesta = await fetch(`/peliculas/${id}`, {
+             method :'PUT',
+             headers: { 'Content-Type' : 'application/json' },
+             body : JSON.stringify(renglon)
+      });
+
+      load();
+    }
+
+  let botonesActualizar = document.querySelectorAll(".btnUpdPelicula");
+
+  botonesActualizar.forEach(boton => {
+    boton.addEventListener("click", (e) => {
+      btnActualizarClick(e)
+    });
+  });
 
 };
 
-
 async function load() {
-  const url_base = "http://localhost:3000";
-  const endpoint = "/autos";
+  const url_base = "http://localhost:3051";
+  const endpoint = "/peliculas";
 
   const respuesta = await fetch(url_base + endpoint);
-   autos = await respuesta.json();
-  console.log(autos);
+  peliculas = await respuesta.json();
+  console.log(peliculas);
 
-  mostrarAutos();
+  mostrarPeliculas();
 }
 
 const eliminar = (data) => {
@@ -64,34 +113,36 @@ const eliminar = (data) => {
 };
 
 const agregar = async () => {
-  let patente = document.getElementById("patente").value;
-  let marca = document.getElementById("marca").value;
-  let modelo = document.getElementById("modelo").value;
-  let anio = document.getElementById("anio").value;
-  let precio = document.getElementById("precio").value;
-  let carga = document.getElementById("carga").value;
+  let titulo = document.getElementById("titulo").value;
+  let actoresPrincipales = document.getElementById("actoresPrincipales").value;
+  let generos = document.getElementById("generos").value;
+  let sinopsis = document.getElementById("sinopsis").value;
+  let imagen = document.getElementById("imagen").value;
+  let duracion = document.getElementById("duracion").value;
+  let fechaLanzamiento = document.getElementById("fechaLanzamiento").value;
 
-  let auto = {
-    patente:patente,
-    marca: marca,
-    modelo: modelo,
-    anio: Number(anio),
-    precio: Number(precio),
-    carga: Number(carga),
+  let pelicula = {
+    titulo:titulo,
+    actoresPrincipales:actoresPrincipales,
+    generos:generos,
+    sinopsis:sinopsis,
+    imagen:Image (imagen),
+    duracion: Number(duracion),
+    fechaLanzamiento: Number(fechaLanzamiento),
   };
-  const response = await postAutosServidor(auto);
+  const response = await postPeliculaServidor(pelicula);
 
   if (!Object.keys(response).includes("error")) {
-    auto.id= response.id;
-    autos.push(auto);
-    mostrarAutos();
+    pelicula.id = response.id;
+    peliculas.push(pelicula);
+    mostrarPeliculas();
   } else {
     // manejo de error
   }
 };
 
-const postAutosServidor = async (datos) => {
-  const p = await fetch("/autos", {
+const postPeliculaServidor = async (datos) => {
+  const p = await fetch("/peliculas", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(datos),

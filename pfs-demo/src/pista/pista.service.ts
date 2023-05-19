@@ -78,4 +78,24 @@ export class PistaService {
 
     return false;
   }
+
+  updatePista(nuevaPista: any, id: string): string{
+    
+    let index = this.Pistas.findIndex(pista => pista.id == id);
+
+    if (index != -1) {
+      let pistaExistente = this.Pistas[index];
+
+      pistaExistente.setNombre(nuevaPista.nombre);
+      pistaExistente.setDuracion(nuevaPista.duracion);
+      pistaExistente.setInterprete(nuevaPista.interprete);
+      pistaExistente.setLanzamiento(nuevaPista.lanzamiento);
+
+      return "ok"
+    } else {
+      return "404"
+    }
+
+  }
+  
 }

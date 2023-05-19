@@ -3,9 +3,9 @@ import { IsNotEmpty, IsNumber, IsString, MinLength } from "class-validator";
 // DTO >> Data Transfer Object
 
 export class CreatePistaDto {
-  @IsString()    //solo string
-  @IsNotEmpty()   //no puede estar vacio
-  @MinLength(3)   //minimo de tres caracteres
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(3)
   readonly nombre: string;
 
   @IsNumber()

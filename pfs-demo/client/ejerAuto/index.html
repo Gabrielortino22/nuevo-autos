@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peliculas</title>
+    <title>Pistas</title>
   </head>
 
   <body>
-    <h1>Peliculas</h1>
+    <h1>Pistas</h1>
 
     <table border="1px solid black">
       <thead>
@@ -31,8 +31,30 @@
 
 
       </thead>
+      <style>
+        /* Estilos para el contenedor */
+        img {
+            display: flex; /* Utilizar flexbox */
+  
+            justify-content: center; /* Centrar horizontalmente */
+  
+ 
+         align-items: center;
+            max-width: 500px; /* Centrar horizontal y verticalmente */
+          max-height: auto; /* Alto del contenedor igual al alto de la ventana */
+        }
     
-      
+        /* Estilos para el div */
+        div {
+         
+            
+          width: 20% ; /* Ancho del 30% del contenedor */
+          height: 20%; /* Alto del 30% del contenedor */
+          background-color: #7c1616; /* Color de fondo del div */
+        }
+      </style>
+
+      <div><img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80" alt="imagen gatito" /></div>
       <thead>
         <td></td>
 
@@ -44,7 +66,7 @@
 
         <td><input type="text" name="" value="" id="sinopsis" /></td>
       
-        <td><input type="image" name="" value="" id="imagen" /></td>
+        <td><input type="text" id="imagen" /></td>
 
         <td><input type="number" name="" value="" id="duracion" /></td>
 
@@ -53,13 +75,13 @@
     
     </thead>
       <thead>
-        <td colspan="7">
+        <td colspan="4">
           <button type="button" id="btnAgregar">Agregar</button>
           <!-- <button type="button" id="btnDuracion">Duración</button> -->
         </td>
       </thead>
 
-      <tbody id="tblPeliculas"></tbody>
+      <tbody id="tblPistas"></tbody>
     </table>
 
     <!-- <div id="total"></div> -->
