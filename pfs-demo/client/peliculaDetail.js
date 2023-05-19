@@ -19,7 +19,7 @@ const processParam = () => {
 const getPeliculaDetail = async () => {
     try {
         processParam();
-        const response = await fetch(`http://localhost:3051/peliculas/${params["index"]}`);
+        const response = await fetch(`http://localhost:3000/peliculas/${params["index"]}`);
 
         if (!response.ok) {
             throw new Error("Network response was not ok");
@@ -34,6 +34,7 @@ const getPeliculaDetail = async () => {
             document.querySelector('#imagen').innerHTML += pelicula['imagen'];
             document.querySelector('#duracion').innerHTML += pelicula['duracion'];
             document.querySelector('#fechaLanzamiento').innerHTML += pelicula['fechaLanzamiento'];
+            
         }
     } catch (error) {
         console.error(error);

@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(23, 74, 125);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+table{
+    border: solid thick aquamarine;
+    
+    margin: auto;
+    width: 100%;
+    margin-top: 5vh;
+    font-size: 1.5vh;
+    margin-bottom: 5vh;
+}
+p,
+h1{   
+font-size: 3rem;
+color: black;
+}
+
+th,
+td,
+tbody{
+    border: solid 1px aquamarine;
+    width: 70px;
+}
+input{
+    width: 70px;
+}

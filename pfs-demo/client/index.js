@@ -1,15 +1,13 @@
-// let contenedor = document.getElementById('contenedor')
 
 let btnAgregar = document.getElementById("btnAgregar");
 
-// let btnDuracion = document.getElementById('btnDuracion');
+
 let peliculas = [];
 
 const mostrarPeliculas = () => {
   let contenedor = document.getElementById("tblPeliculas");
   let tabla = "";
   for (let r of peliculas) {
-    //console.log(r);
     tabla += `<tr>
       <td>${r.id}</td>
        <td>${r.titulo}</td>
@@ -19,7 +17,7 @@ const mostrarPeliculas = () => {
       <td>${r.imagen}</td>
       <td>${r.duracion}</td>
       <td>${r.fechaLanzamiento}</td>
-      <td> <a href='http://localhost:3051/peliculaDetail.html?index=${r.id}' > Ver detalles </a> </td>
+      <td> <a href='http://localhost:3000/peliculaDetail.html?index=${r.id}' > Ver detalles </a> </td>
 			<td> <button type="button" class="btnEliminar" id="${r.id}">Eliminar</button></td>
     </tr>
     <tr>
@@ -41,7 +39,7 @@ const mostrarPeliculas = () => {
 
   contenedor.innerHTML = tabla;
 
-// Funcion para borrar pistas
+// Funcion para borrar peliculas
   const borrarPelicula = async (e) => {
     let id = e.target.id;
 
@@ -98,7 +96,7 @@ const mostrarPeliculas = () => {
 };
 
 async function load() {
-  const url_base = "http://localhost:3051";
+  const url_base = "http://localhost:3000";
   const endpoint = "/peliculas";
 
   const respuesta = await fetch(url_base + endpoint);
