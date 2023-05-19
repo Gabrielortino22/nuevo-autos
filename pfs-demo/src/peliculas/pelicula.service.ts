@@ -89,6 +89,8 @@ export class PeliculaService {
   getAllPeliculas(): Pelicula[] {
     return this.peliculas;
   }
+
+
   getPeliculaById(id: string): Pelicula {
     const pelicula = this.peliculas.find((pelicula) => pelicula.id === id);
     if (!pelicula) {
@@ -98,6 +100,7 @@ export class PeliculaService {
     return pelicula;
   }
 
+  
   createPelicula(CreatePeliculaDto: CreatePeliculaDto): Pelicula {
     const newPelicula: Pelicula = new Pelicula (
       uuid(),
