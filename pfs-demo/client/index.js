@@ -14,7 +14,7 @@ const mostrarPeliculas = () => {
       <td>${r.actoresPrincipales}</td>
       <td>${r.generos}</td>
       <td>${r.sinopsis}</td>
-      <td>${r.imagen}</td>
+      <td><img src="${r.imagen}" /> </td>
       <td>${r.duracion}</td>
       <td>${r.fechaLanzamiento}</td>
       <td> <a href='http://localhost:3000/peliculaDetail.html?index=${r.id}' > Ver detalles </a> </td>
@@ -26,7 +26,7 @@ const mostrarPeliculas = () => {
     <td><input type="text" value="${r.actoresPrincipales}" id="actoresPrincipales${r.id}"</td>
     <td><input type="text" value="${r.generos}" id="generos${r.id}"</td>
     <td><input type="text"value="${r.sinopsis}" id="sinopsis${r.id}"</td>
-    <td><input type="image" value="${r.imagen}" id="imagen${r.id}"</td>
+    <td><input type="text"value="${r.imagen}" id="imagen${r.id}"</td>
     <td><input type="number" value="${r.duracion}" id="duracion${r.id}"</td>
     <td><input type="number"value="${r.fechaLanzamiento}" id="fechaLanzamiento${r.id}"</td>
     <td> ---</td>
